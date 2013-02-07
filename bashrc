@@ -102,3 +102,11 @@ bind '"\e[B": history-search-forward'
 alias ll='ls -alFh'
 alias l='ls -CF'
 
+# my aliases
+#______________________________________________________________________
+alias space='du -sh'
+# 'time' is the pstats.stats sort key for 'tottime'
+alias pyprofile='python -m cProfile --sort time'
+alias ggrep='grep -inRI --color --line-number'
+# shorten prompt to "user:current_lowest_directory$"
+alias ppp="PS1='\[\e[1;34m\]\u\[\e[m\]:\[\e[1;36m\]\W\[\e[m\]\[\e[1;32m\]\$\[\e[m\] '"

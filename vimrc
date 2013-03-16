@@ -99,7 +99,7 @@ set hidden
 
 " Persistent undo/redo history
 set undofile
-set undodir=/home/nikolaus/.vim/undodir/
+set undodir=~/.vim/undodir/
 
 " <%> can switch if/elsif/else/end, XML tags etc.
 runtime macros/matchit.vim

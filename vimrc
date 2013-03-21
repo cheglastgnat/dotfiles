@@ -19,6 +19,7 @@
   Bundle 'Syntastic'
   Bundle 'majutsushi/tagbar'
   Bundle 'scrooloose/nerdtree'
+  Bundle 'jistr/vim-nerdtree-tabs'
   Bundle 'fholgado/minibufexpl.vim'
 
   if haveVundle == 0
@@ -31,11 +32,11 @@
 " Plugin setups
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 " Tagbar (find the CTags bin first)
-let tagbar_ctags_bin='/home/nikolaus/.vim/exuberant-ctags/build/bin/ctags'
+let tagbar_ctags_bin='~/.vim/exuberant-ctags/build/bin/ctags'
 nnoremap <F7> :TagbarToggle<CR>
 
-" NERD tree
-nnoremap <F5> :NERDTreeToggle<CR>
+" NERDtree and NERDtree-Tabs
+nnoremap <F5> :NERDTreeTabsToggle<CR>
 
 " MiniBufExplorer
 nnoremap <F4> :TMiniBufExplorer<CR>
@@ -45,6 +46,9 @@ syntax on
 syntax enable
 filetype indent on
 filetype plugin on
+
+" Set leader to ',' (comma)
+let mapleader=','
 
 " Invisible characters
 "(set list)  " <- uncomment for default listchars

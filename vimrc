@@ -16,11 +16,15 @@
   Bundle 'gmarik/vundle'
   " Solarized color scheme
   Bundle 'altercation/vim-colors-solarized'
+  " Syntax highlighter
   Bundle 'Syntastic'
+  " ctags 
   Bundle 'majutsushi/tagbar'
+  " file system tree
   Bundle 'scrooloose/nerdtree'
   Bundle 'jistr/vim-nerdtree-tabs'
   Bundle 'fholgado/minibufexpl.vim'
+  Bundle 'tpope/vim-surround'
 
   if haveVundle == 0
     echo "Installing Bundles, please ignore key map error messages"

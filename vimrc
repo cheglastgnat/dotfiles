@@ -18,13 +18,18 @@
   Bundle 'altercation/vim-colors-solarized'
   " Syntax highlighter
   Bundle 'Syntastic'
-  " ctags 
+  " Ctags 
   Bundle 'majutsushi/tagbar'
-  " file system tree
+  " File system tree
   Bundle 'scrooloose/nerdtree'
   Bundle 'jistr/vim-nerdtree-tabs'
   Bundle 'fholgado/minibufexpl.vim'
+  " Add, delete, change surrounding ',",(,[,{,< and HTML-tags
   Bundle 'tpope/vim-surround'
+  " Extend repeating per '.' to non-native commands
+  Bundle 'vim-scripts/repeat.vim'
+  " Autocompletion
+  " Bundle 'Valloric/YouCompleteMe'
 
   if haveVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -160,3 +165,5 @@ au FocusLost * :wa
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
 
+" Close (no-unsaved-changes) buffer with Ctrl-W
+nnoremap <C-w> :bd<CR>

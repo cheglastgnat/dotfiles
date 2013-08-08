@@ -159,11 +159,24 @@ vnoremap <C-j> xp`[V`]
 "map <F7> mzgg=G'z<CR>
 
 " Autosave when losing focus
-au FocusLost * :wa
+"au FocusLost * :wa
 
 " Cycle through buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
 
-" Close (no-unsaved-changes) buffer with Ctrl-W
+" Close (-unsaved-changes) buffer with Ctrl-Shift-W
 nnoremap <C-w> :bd<CR>
+
+" Make mappings available for Ctrl+{Del|arrow keys}
+map <ESC>[3;5~ <C-Del>
+map <ESC>[1;5A <C-Up>
+map <ESC>[1;5B <C-Down>
+map <ESC>[1;5D <C-Left>
+map <ESC>[1;5C <C-Right>
+
+" Ctrl+{arrow keys} navigate splits
+nnoremap <C-Up> :wincmd k<CR>
+nnoremap <C-Down> :wincmd j<CR>
+nnoremap <C-Left> :wincmd h<CR>
+nnoremap <C-Right> :wincmd l<CR>

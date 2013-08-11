@@ -120,7 +120,7 @@ runtime macros/matchit.vim
 " Solarized color scheme
 set t_Co=16  "choose the right color palette
 set background=light
-colorscheme solarized
+"colorscheme solarized
 
 " Status line
 set laststatus=2
@@ -174,6 +174,10 @@ map <ESC>[1;5A <C-Up>
 map <ESC>[1;5B <C-Down>
 map <ESC>[1;5D <C-Left>
 map <ESC>[1;5C <C-Right>
+
+" Shift-Tab unindents (command mode and insert mode)
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <ESC><<i
 
 " Ctrl+{arrow keys} navigate splits
 nnoremap <C-Up> :wincmd k<CR>

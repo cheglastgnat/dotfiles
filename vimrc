@@ -48,7 +48,7 @@ nnoremap <F7> :TagbarToggle<CR>
 nnoremap <F5> :NERDTreeTabsToggle<CR>
 
 " MiniBufExplorer
-nnoremap <F4> :TMiniBufExplorer<CR>
+nnoremap <F4> :MBEToggle <CR>
 "//////////////////////////////////////////////////////////////////////
 
 syntax on

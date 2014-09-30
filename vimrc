@@ -30,6 +30,8 @@
   Bundle 'vim-scripts/repeat.vim'
   " Autocompletion
   " Bundle 'Valloric/YouCompleteMe'
+  " Commenting
+  Bundle 'scrooloose/nerdcommenter'
 
   if haveVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -48,11 +50,7 @@ nnoremap <F7> :TagbarToggle<CR>
 nnoremap <F5> :NERDTreeTabsToggle<CR>
 
 " MiniBufExplorer
-nnoremap <F4> :MBEToggle <CR>
-
-" Syntastic
-" Add C++11 support
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+nnoremap <F4> :MBEToggle<CR>
 "//////////////////////////////////////////////////////////////////////
 
 syntax on
@@ -106,10 +104,13 @@ set showcmd
 set backspace=2
 " Activate mouse support (visual)
 set mouse=a
+set ttymouse=xterm2
 " <tab> when autocompleting in command mode shows options
 set wildmenu
 " Complete only up to the point of ambiguity
 set wildmode=list:longest
+" Mark lines longer than 80 characters
+set colorcolumn=80
 
 " Current buffer can be put to the background without writing to disk and when a background buffer becomes current again, marks and undo-history are remembered
 set hidden
@@ -183,8 +184,14 @@ map <ESC>[1;5C <C-Right>
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <ESC><<i
 
-" Ctrl+{arrow keys} navigate splits
+" Ctrl+{arrow keys} -> Navigate splits
 nnoremap <C-Up> :wincmd k<CR>
 nnoremap <C-Down> :wincmd j<CR>
 nnoremap <C-Left> :wincmd h<CR>
 nnoremap <C-Right> :wincmd l<CR>
+
+" Ctrl+Shift+{arrow keys} -> Resize splits
+" nnoremap <C-S-Up> :resize +5<CR>
+" nnoremap <C-S-Down> :resize -5<CR>
+" nnoremap <C-S-Left> :vertical resize +5<CR>
+" nnoremap <C-S-Right> :vertical resize -5<CR>

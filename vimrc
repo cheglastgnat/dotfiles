@@ -42,6 +42,9 @@
 
 " Plugin setups
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+" Syntastic (enable C++11)
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
 " Tagbar (find the CTags bin first)
 let tagbar_ctags_bin='~/.vim/exuberant-ctags/build/bin/ctags'
 nnoremap <F7> :TagbarToggle<CR>

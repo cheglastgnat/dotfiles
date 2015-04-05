@@ -13,30 +13,28 @@
 
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
-  Bundle 'gmarik/vundle'
+  Plugin 'gmarik/vundle'
   " Solarized color scheme
-  Bundle 'altercation/vim-colors-solarized'
+  Plugin 'altercation/vim-colors-solarized'
   " Syntax highlighter
-  Bundle 'Syntastic'
+  Plugin 'Syntastic'
   " Ctags 
-  Bundle 'majutsushi/tagbar'
+  Plugin 'majutsushi/tagbar'
   " File system tree
-  Bundle 'scrooloose/nerdtree'
-  Bundle 'jistr/vim-nerdtree-tabs'
-  Bundle 'fholgado/minibufexpl.vim'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'jistr/vim-nerdtree-tabs'
+  Plugin 'fholgado/minibufexpl.vim'
   " Add, delete, change surrounding ',",(,[,{,< and HTML-tags
-  Bundle 'tpope/vim-surround'
+  Plugin 'tpope/vim-surround'
   " Extend repeating per '.' to non-native commands
-  Bundle 'vim-scripts/repeat.vim'
-  " Autocompletion
-  " Bundle 'Valloric/YouCompleteMe'
-  " Commenting
-  Bundle 'scrooloose/nerdcommenter'
+  Plugin 'vim-scripts/repeat.vim'
+  " Continuously updated session files
+  Plugin 'tpope/vim-obsession'
 
   if haveVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
+    echo "Installing plugins via vundle, please ignore key map error messages"
     echo ""
-    :BundleInstall
+    :PluginInstall
   endif
 "//////////////////////////////////////////////////////////////////////
 
@@ -163,18 +161,12 @@ nnoremap <C-j> ddp
 vnoremap <C-k> xkP`[V`]
 vnoremap <C-j> xp`[V`]
 
-" Reindent entire file (remembering position)
-"map <F7> mzgg=G'z<CR>
-
 " Autosave when losing focus
 "au FocusLost * :wa
 
 " Cycle through buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
-
-" Close (-unsaved-changes) buffer with Ctrl-Shift-W
-nnoremap <C-w> :bd<CR>
 
 " Make mappings available for Ctrl+{Del|arrow keys}
 map <ESC>[3;5~ <C-Del>
@@ -193,8 +185,3 @@ nnoremap <C-Down> :wincmd j<CR>
 nnoremap <C-Left> :wincmd h<CR>
 nnoremap <C-Right> :wincmd l<CR>
 
-" Ctrl+Shift+{arrow keys} -> Resize splits
-" nnoremap <C-S-Up> :resize +5<CR>
-" nnoremap <C-S-Down> :resize -5<CR>
-" nnoremap <C-S-Left> :vertical resize +5<CR>
-" nnoremap <C-S-Right> :vertical resize -5<CR>

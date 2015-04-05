@@ -168,6 +168,9 @@ vnoremap <C-j> xp`[V`]
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
 
+" Close buffer with Ctrl-W
+nnoremap <C-w> :bd<CR>
+
 " Make mappings available for Ctrl+{Del|arrow keys}
 map <ESC>[3;5~ <C-Del>
 map <ESC>[1;5A <C-Up>

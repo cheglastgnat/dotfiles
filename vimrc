@@ -30,6 +30,10 @@
   Plugin 'vim-scripts/repeat.vim'
   " Continuously updated session files
   Plugin 'tpope/vim-obsession'
+  " Highlight words
+  Plugin 't9md/vim-quickhl'
+  " Toggle, display and navigate marks
+  Plugin 'kshenoy/vim-signature'
 
   if haveVundle == 0
     echo "Installing plugins via vundle, please ignore key map error messages"
@@ -37,6 +41,11 @@
     :PluginInstall
   endif
 "//////////////////////////////////////////////////////////////////////
+
+
+" Set leader to ',' (comma)
+let mapleader=','
+
 
 " Plugin setups
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -52,15 +61,19 @@ nnoremap <F5> :NERDTreeTabsToggle<CR>
 
 " MiniBufExplorer
 nnoremap <F4> :MBEToggle<CR>
+
+" QuickHL
+nmap <leader>m <Plug>(quickhl-manual-this)
+xmap <leader>m <Plug>(quickhl-manual-this)
+nmap <leader>M <Plug>(quickhl-manual-reset)
+xmap <leader>M <Plug>(quickhl-manual-reset)
+nmap <leader>j <Plug>(quickhl-cword-toggle)
 "//////////////////////////////////////////////////////////////////////
 
 syntax on
 syntax enable
 filetype indent on
 filetype plugin on
-
-" Set leader to ',' (comma)
-let mapleader=','
 
 " Invisible characters
 "(set list)  " <- uncomment for default listchars

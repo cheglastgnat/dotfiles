@@ -201,3 +201,6 @@ nnoremap <C-Down> :wincmd j<CR>
 nnoremap <C-Left> :wincmd h<CR>
 nnoremap <C-Right> :wincmd l<CR>
 
+" Fix Python indentation
+autocmd FileType python set shiftwidth=2 | set tabstop=2
+

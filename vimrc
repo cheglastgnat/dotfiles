@@ -219,4 +219,45 @@ nnoremap <C-Right> :wincmd l<CR>
 autocmd FileType python set shiftwidth=2 | set tabstop=2
 
 
+" Folding
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  " Open documents with all folds closed
+  set foldlevelstart=0
+
+  " <space> to toggle folds
+  nnoremap <space> za
+  vnoremap <space> za
+
+  " "Refocus" folds
+  nnoremap ,z zMzvzz
+
+  " Folding for C++
+  augroup ft_cpp
+    au!
+    au FileType cpp setlocal foldmethod=marker foldmarker={,}
+  augroup END
+  " Folding for CUDA
+  augroup ft_cuda
+    au!
+    au FileType cuda setlocal foldmethod=marker foldmarker={,}
+  augroup END
+  " Folding for C
+  augroup ft_c
+    au!
+    au FileType c setlocal foldmethod=marker foldmarker={,}
+  augroup END
+"//////////////////////////////////////////////////////////////////////
+"/////////////////////////////////////////////////////////////////////
+
+
+" Make sure Vim returns to the same line when you reopen a file.
+augroup line_return
+  au!
+  au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
 

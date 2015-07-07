@@ -37,6 +37,8 @@
   Plugin 'nelstrom/vim-visual-star-search'
   " Status/tabline
   Plugin 'bling/vim-airline'
+  " TODO tags etc
+  Plugin 'TaskList.vim'
   
   if haveVundle == 0
     echo "Installing plugins via vundle, please ignore key map error messages"
@@ -222,8 +224,8 @@ autocmd FileType python set shiftwidth=2 | set tabstop=2
 " Folding
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-  " Open documents with all folds closed
-  set foldlevelstart=0
+  " Open documents with all folds open
+  set foldlevelstart=99
 
   " <space> to toggle folds
   nnoremap <space> za
@@ -232,21 +234,28 @@ autocmd FileType python set shiftwidth=2 | set tabstop=2
   " "Refocus" folds
   nnoremap ,z zMzvzz
 
-  " Folding for C++
+  " C++
   augroup ft_cpp
     au!
     au FileType cpp setlocal foldmethod=marker foldmarker={,}
   augroup END
-  " Folding for CUDA
+  " CUDA
   augroup ft_cuda
     au!
     au FileType cuda setlocal foldmethod=marker foldmarker={,}
   augroup END
-  " Folding for C
+  " C
   augroup ft_c
     au!
     au FileType c setlocal foldmethod=marker foldmarker={,}
   augroup END
+
+  " XML
+  let g:xml_syntax_folding=1
+  au FileType xml setlocal foldmethod=syntax
+  au FileType html setlocal foldmethod=syntax
+  " CSS
+  au FileType css setlocal foldmethod=syntax
 "//////////////////////////////////////////////////////////////////////
 "/////////////////////////////////////////////////////////////////////
 

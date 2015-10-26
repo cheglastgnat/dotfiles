@@ -148,7 +148,10 @@ set wildmenu
 set wildmode=list:longest
 " Mark lines longer than 80 characters
 set colorcolumn=72
-hi ColorColumn ctermbg=lightgrey
+hi ColorColumn ctermbg=0
+" Mark current cursor line
+set cursorline
+hi CursorLine term=reverse ctermbg=0 cterm=NONE
 
 " Current buffer can be put to the background without writing to disk 
 " and when a background buffer becomes current again, marks and 

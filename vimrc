@@ -39,6 +39,14 @@
   Plugin 'bling/vim-airline'
   " TODO tags etc
   Plugin 'TaskList.vim'
+  " Gundo (undo tree helper)
+  Plugin 'sjl/gundo.vim'
+  " JSON tools
+  Plugin 'elzr/vim-json'
+  " Work with GPG encrypted files
+  Plugin 'jamessan/vim-gnupg'
+  " Run Async shell commands
+  Plugin 'skywind3000/asyncrun.vim'
   
   if haveVundle == 0
     echo "Installing plugins via vundle, please ignore key map error messages"
@@ -82,6 +90,17 @@ let g:airline_powerline_fonts = 1
 "let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline_theme = 'sol'
+
+" Gundo
+nnoremap <F4> :GundoToggle<CR>
+let g:gundo_right = 1
+let g:gundo_preview_bottom = 1
+let g:gundo_auto_preview = 0
+
+" JSON.vim
+" Do not hide quotes
+let g:vim_json_syntax_conceal = 0
+
 "//////////////////////////////////////////////////////////////////////
 "/////////////////////////////////////////////////////////////////////
 
@@ -102,9 +121,9 @@ filetype plugin on
 "(set list)  " <- uncomment for default listchars
 set listchars=tab:▸\ ,eol:¬
 " Toggle invisible characters with <leader><l>
-nmap <leader>l :set list!<CR> :call TYShowBreak()<CR>
+nnoremap <leader>l :set list!<CR> :call TYShowBreak()<CR>
 " Quick buffer switch with <leader><leader>
-nmap <leader><leader> :b#<CR>
+"nmap <leader><leader> :b#<CR>
 " Clear search highlighting with <leader><space>
 nnoremap <leader><space> :nohlsearch<CR>
 
@@ -194,6 +213,24 @@ map <F9> :e $HOME/.vimrc<CR>
 " And .bashrc
 map <F8> :e $HOME/.bashrc<CR>
 
+" Async make
+nmap <leader>mc :AsyncRun make clean<CR>
+nmap <leader>md :AsyncRun make debug -j12 -l12<CR>
+nmap <leader>mm :AsyncRun make -j12 -l12<CR>
+nmap <leader>ms :AsyncStop<CR>
+" Toggle quickfix window
+function! QFixToggle()
+  if exists("g:qfix_win") 
+    cclose
+    unlet g:qfix_win
+  else
+    copen 10
+    let g:qfix_win = bufnr("$")
+  endif
+endfunction
+nmap <leader>qf :call QFixToggle()<CR>
+
+
 " Autosave when losing focus
 "au FocusLost * :wa
 
@@ -231,8 +268,8 @@ autocmd FileType python set shiftwidth=2 | set tabstop=2
   set foldlevelstart=99
 
   " <space> to toggle folds
-  nnoremap <space> za
-  vnoremap <space> za
+  "nnoremap <space> za
+  "vnoremap <space> za
 
   " "Refocus" folds
   nnoremap ,z zMzvzz
